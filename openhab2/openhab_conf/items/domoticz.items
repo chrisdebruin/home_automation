@@ -1,0 +1,4 @@
+String    Power_Today     "Gebruik vandaag [%s]"    (Energie)    {http="<[domoticzCache:3000:JSONPATH($.result[0].CounterToday)]"}
+String    Power_Delivery_Today     "Geleverd vandaag [%s]"    (Energie)    {http="<[domoticzCache:3000:JSONPATH($.result[0].CounterDelivToday)]"}
+String    Power_Usage     "Huidig verbruik [%s]"    (Energie)    {http="<[domoticzCache:3000:JSONPATH($.result[0].Usage)]"}
+String    Power_Delivery     "Huidige levering [%s]"    (Energie)    {http="<[domoticzCache:3000:JSONPATH($.result[0].UsageDeliv)]"}

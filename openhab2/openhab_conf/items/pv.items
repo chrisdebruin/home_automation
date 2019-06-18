@@ -1,0 +1,4 @@
+//String    PV_Power_Current     "Huidig vermogen [%s]"    (Solar)    {http="<[pvCache:3000:JSONPATH($.curpower)]"}
+//String    PV_Power_Day     "Totaal vandaag [%s]"    (Solar)    {http="<[pvCache:3000:JSONPATH($.eday)]"}
+//String    PV_Power_Total     "Totaal [%s]"    (Solar)    {http="<[pvCache:3000:JSONPATH($.etotal)]"}
+

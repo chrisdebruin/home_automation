@@ -1,0 +1,2 @@
+http:pvCache.url=https://eu.goodwe-power.com/Mobile/GetMyPowerStationById?stationid=e20529b4-bcc8-44aa-8c63-e6b09b4514df
+http:pvCache.updateInterval=60000

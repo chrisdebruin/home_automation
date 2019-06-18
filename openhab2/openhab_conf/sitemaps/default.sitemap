@@ -1,0 +1,44 @@
+sitemap default label="Main Menu"
+{
+  Frame label="Home" {
+    Text item=HeatPump_Temperature_1
+    Text item=Power_Today icon="energy"
+    Text item=Power_Delivery_Today icon="sun"
+
+    Text label="Warmtepomp" icon="temperature" {
+
+      Frame label="Warmtepomp" {
+        Text item=HeatPump_Temperature_1
+        Text item=HeatPump_Outside_Avg
+        Text item=HeatPump_Probe_in
+        Text item=HeatPump_Probe_out
+        Text item=HeatPump_State
+        Text item=HeatPump_Temperature_6
+        Text item=HeatPump_Temperature_4
+        Text item=HeatPump_Temperature_3
+        Text item=HeatPump_Temperature_2
+        Text item=HeatPump_Thermalenergy_Heating
+        Text item=HeatPump_Thermalenergy_Warmwater
+        Text item=HeatPump_Thermalenergy_Total
+      }
+    }
+
+    Text label="Energie" icon="energy" {
+   
+    //  Frame label="Zonnepanelen" {
+
+     //     Text item=PV_Power_Current icon="sun"
+       //   Text item=PV_Power_Day icon="sun"
+         // Text item=PV_Power_Total icon="sun"
+     // }
+
+      Frame label="Energiemeter" {
+         Text item=Power_Today icon="energy"
+         Text item=Power_Delivery_Today icon="sun" 
+         Text item=Power_Usage icon="energy"
+         Text item=Power_Delivery icon="sun"
+      }
+    }
+
+  }
+}
