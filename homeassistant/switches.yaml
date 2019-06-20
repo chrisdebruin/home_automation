@@ -1,0 +1,10 @@
+- platform: mqtt
+  name: "Afzuiging"
+  state_topic: "stat/sonoff_afzuiging/POWER"
+  command_topic: "cmnd/sonoff_afzuiging/power"
+  retain: true
+- platform: mqtt
+  name: "Office Chris"
+  state_topic: "stat/sonoff_office_chris/POWER"
+  command_topic: "cmnd/sonoff_office_chris/power"
+  retain: true

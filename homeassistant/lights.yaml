@@ -1,0 +1,5 @@
+- platform: mqtt
+  name: "livingroom"
+  state_topic: "stat/sonoff_woonkamer/POWER"
+  command_topic: "cmnd/sonoff_woonkamer/power"
+  retain: true

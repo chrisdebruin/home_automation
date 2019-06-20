@@ -1,0 +1,112 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 0
+  longitude: 0
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Amsterdam
+  # Customization file
+  customize: !include customize.yaml
+  auth_providers:
+   - type: legacy_api_password
+     api_password: !secret api_password
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+        #device_tracker:
+        #- platform: nmap_tracker
+        #hosts: 192.168.1.0/24
+        #home_interval: 10
+        #new_device_defaults:
+        #track_new_devices: False
+        #exclude:
+        #- 192.168.1.5
+        #- 192.168.1.1
+        #- 192.168.1.15
+        #- 192.168.1.11
+
+#device_tracker:
+#  - platform: icloud
+#    username: !secret icloud_username
+#    password: !secret icloud_password
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+media_player:
+  - platform: samsungtv
+    name: tv
+    host: 192.168.1.2
+    mac: 90:F1:AA:AD:18:8A
+
+# Track the sun
+sun:
+
+    #- platform: dsmr
+    # port: /dev/ttyUSB0
+    # dsmr_version: 4
+
+# Text to speech
+google_translate:
+  - platform: google
+
+# Cloud
+cloud:
+
+zone:
+  - name: Home
+    latitude: 52.04844495133844
+    longitude: 5.628085176611849
+    radius: 100
+
+    #pump:
+    #host: "192.168.1.20"
+    #port: 8889
+
+recorder:
+  purge_keep_days: 5
+
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+sensor: !include sensors.yaml
+switch: !include switches.yaml
+light: !include lights.yaml

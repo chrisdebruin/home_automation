@@ -1,1 +1,6 @@
 openhab_userdata/
+homeassistant/secrets.yaml
+homeassistant/home-assistant_v2.db
+homeassistant/.storage
+domoticz/config/
+*.log

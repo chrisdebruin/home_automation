@@ -1,0 +1,71 @@
+- id: dimm_light_tv_on
+  alias: Dimm light when tv is turned on
+  trigger:
+  - platform: state
+    entity_id: media_player.tv
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: light.hue_white_lamp_1
+    state: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.hue_white_lamp_1
+    data:
+      brightness: 50
+- id: fan_high
+  alias: fan high
+  condition:
+  - condition: state
+    entity_id: switch.afzuiging
+    state: 'off'
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.temp_warmwater
+    below: 50
+  action:
+    service: switch.turn_on
+    entity_id: switch.afzuiging
+- id: light_livingroom_on
+  alias: turn on light in livingroom
+  trigger:
+  - platform: state
+    entity_id: light.woonkamer
+    from: 'off'
+    to: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.livingroom
+- id: light_livingroom_off
+  alias: turn off light in livingroom
+  trigger:
+  - platform: state
+    entity_id: light.woonkamer
+    from: 'on'
+    to: 'off'
+  action:
+    service: light.turn_off
+    entity_id: light.livingroom
+- id: '1551989773002'
+  alias: Fan low
+  trigger:
+  - above: '55'
+    entity_id: sensor.temp_warmwater
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: switch.afzuiging
+    state: 'on'
+  action:
+  - service: switch.turn_off
+- id: '1555003172431'
+  alias: Turn off office power
+  trigger:
+  - at: '22:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: switch.office_chris
+    state: 'on'
+  action:
+  - service: switch.turn_off
