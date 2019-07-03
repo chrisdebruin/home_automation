@@ -2,7 +2,7 @@ version: '2.2'
 
 services:
   openhab:
-    image: "openhab/openhab:2.4.0"
+    image: "openhab/openhab:2.4.0-armhf-alpine"
     restart: unless-stopped
     # network_mode: host
     ports:
