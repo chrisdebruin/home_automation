@@ -8,8 +8,8 @@ services:
     ports:
       - 8081:8080
     volumes:
-      # - "/etc/localtime:/etc/localtime:ro"
-      # - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
       - "./openhab2/openhab_addons:/openhab/addons"
       - "./openhab2/openhab_conf:/openhab/conf"
       - "./openhab2/openhab_userdata:/openhab/userdata"
@@ -18,7 +18,7 @@ services:
       OPENHAB_HTTPS_PORT: "8443"
       EXTRA_JAVA_OPTS: "-Duser.timezone=Europe/Amsterdam"
   homeassistant:
-    image: homeassistant/home-assistant
+    image: homeassistant/raspberrypi3-homeassistant
     ports:
       - 8123:8123
     volumes:
@@ -39,13 +39,11 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - "domoticz:/config"
+      - "./domoticz/config:/config"
     environment:
-      - PUID=501
-      - PGID=20
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/Amsterdam
     restart: unless-stopped
-
-
-volumes:
-  domoticz:
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
