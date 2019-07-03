@@ -39,9 +39,13 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - "./domoticz/config:/config"
+      - "domoticz:/config"
     environment:
       - PUID=501
       - PGID=20
       - TZ=Europe/Amsterdam
     restart: unless-stopped
+
+
+volumes:
+  domoticz:
