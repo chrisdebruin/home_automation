@@ -15,26 +15,20 @@
   #  value_template: "{{ value_json['SI7021'].Humidity }}"
   #  unit_of_measurement: "%"
 - platform: rest
-  resource: http://openhab:8081/rest/items/HeatPump_Temperature_6
+  resource: http://openhab:8080/rest/items/HeatPump_Temperature_6
   name: 'temp. warmwater'
   value_template: '{{ value_json.state }}'
   unit_of_measurement: "°C"
   verify_ssl: false
 - platform: rest
-  resource: http://openhab:8081/rest/items/HeatPump_Temperature_1
+  resource: http://openhab:8080/rest/items/HeatPump_Temperature_1
   name: 'Buiten temp.'
   value_template: '{{ value_json.state }}'
   unit_of_measurement: "°C"
   verify_ssl: false
 - platform: rest
-  resource: http://openhab:8081/rest/items/HeatPump_Probe_in
+  resource: http://openhab:8080/rest/items/HeatPump_Probe_in
   name: 'Bron in temp.'
   value_template: '{{ value_json.state }}'
   unit_of_measurement: "°C"
-  verify_ssl: false
-- platform: rest
-  resource: http://openhab:8081/rest/items/PV_Power_Day
-  name: 'Solar totaal'
-  value_template: '{{ value_json.state[:-3] }}'
-  unit_of_measurement: "kWh"
   verify_ssl: false
