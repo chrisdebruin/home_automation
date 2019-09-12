@@ -58,6 +58,7 @@
     state: 'on'
   action:
   - service: switch.turn_off
+    entity_id: switch.afzuiging
 - id: '1555003172431'
   alias: Turn off office power
   trigger:
@@ -65,7 +66,8 @@
     platform: time
   condition:
   - condition: state
-    entity_id: switch.office_chris
+    entity_id: goup.office
     state: 'on'
   action:
   - service: switch.turn_off
+    entity_id: goup.office
