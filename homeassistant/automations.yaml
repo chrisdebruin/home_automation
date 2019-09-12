@@ -35,7 +35,7 @@
     to: 'on'
   action:
     service: light.turn_on
-    entity_id: light.livingroom
+    entity_id: group.non_hue_lights
 - id: light_livingroom_off
   alias: turn off light in livingroom
   trigger:
@@ -45,27 +45,7 @@
     to: 'off'
   action:
     service: light.turn_off
-    entity_id: light.livingroom
-- id: light_livingroom_dinner_on
-  alias: turn on light in livingroom
-  trigger:
-  - platform: state
-    entity_id: light.woonkamer
-    from: 'off'
-    to: 'on'
-  action:
-    service: light.turn_on
-    entity_id: light.livingroom_dinner
-- id: light_livingroom_dinner_off
-  alias: turn off light in livingroom
-  trigger:
-  - platform: state
-    entity_id: light.woonkamer
-    from: 'on'
-    to: 'off'
-  action:
-    service: light.turn_off
-    entity_id: light.livingroom_dinner
+    entity_id: group.non_hue_lights
 - id: '1551989773002'
   alias: Fan low
   trigger:

@@ -3,3 +3,9 @@ non_hue_lights:
   entities:
     - light.livingroom_dinner
     - light.livingroom
+
+office:
+  name: office
+  entities:
+    - switch.office_chris
+    - switch.office_mirjam
