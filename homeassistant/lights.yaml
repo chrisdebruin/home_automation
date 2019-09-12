@@ -3,3 +3,8 @@
   state_topic: "stat/sonoff_woonkamer/POWER"
   command_topic: "cmnd/sonoff_woonkamer/power"
   retain: true
+- platform: mqtt
+  name: "livingroom dinner"
+  state_topic: "stat/sonoff_livingroom_dinner/POWER"
+  command_topic: "cmnd/sonoff_livingroom_dinner/power"
+  retain: true

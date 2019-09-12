@@ -8,3 +8,9 @@
   state_topic: "stat/sonoff_office_chris/POWER"
   command_topic: "cmnd/sonoff_office_chris/power"
   retain: true
+- platform: mqtt
+  name: "Office Mirjam"
+  state_topic: "stat/sonoff_office_mirjam/POWER"
+  command_topic: "cmnd/sonoff_office_mirjam/power"
+  retain: true
+
