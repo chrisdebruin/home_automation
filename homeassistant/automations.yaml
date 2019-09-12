@@ -64,10 +64,6 @@
   trigger:
   - at: '22:00'
     platform: time
-  condition:
-  - condition: state
-    entity_id: goup.office
-    state: 'on'
   action:
   - service: switch.turn_off
     entity_id: goup.office
