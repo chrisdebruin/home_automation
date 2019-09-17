@@ -53,10 +53,10 @@ discovery:
         #- 192.168.1.15
         #- 192.168.1.11
 
-#device_tracker:
-#  - platform: icloud
-#    username: !secret icloud_username
-#    password: !secret icloud_password
+device_tracker:
+ - platform: icloud
+   username: !secret icloud_username
+   password: !secret icloud_password
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -82,10 +82,6 @@ sun:
     #- platform: dsmr
     # port: /dev/ttyUSB0
     # dsmr_version: 4
-
-# Text to speech
-google_translate:
-  - platform: google
 
 # Cloud
 cloud:
