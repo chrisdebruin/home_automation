@@ -5,14 +5,17 @@
   scan_interval: 60
   sensors:
     - id: 'ID_WEB_Temperatur_TVL'
-      friendly_name: Aanvoer temp.
+      friendly_name: Aanvoer
     - id: 'ID_WEB_Temperatur_TRL'
-      friendly_name: Retour temp.
+      friendly_name: Retour
     - id: 'ID_WEB_Temperatur_TBW'
-      friendly_name: Warmwater temp.
+      friendly_name: Warmwater
     - id: 'ID_WEB_Temperatur_TWE'
+      friendly_name: Bron in
     - id: 'ID_WEB_Temperatur_TWA'
+      friendly_name: Bron uit
     - id: 'ID_WEB_Temperatur_TA'
+      friendly_name: Buiten
 
 
 
