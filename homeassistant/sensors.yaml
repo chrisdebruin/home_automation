@@ -5,11 +5,16 @@
   scan_interval: 60
   sensors:
     - id: 'ID_WEB_Temperatur_TVL'
-      friendly_name: Aanvoer temperatuur
+      friendly_name: Aanvoer temp.
     - id: 'ID_WEB_Temperatur_TRL'
-      friendly_name: Retour temperatuur
+      friendly_name: Retour temp.
     - id: 'ID_WEB_Temperatur_TBW'
-      friendly_name: temperatuur
+      friendly_name: Warmwater temp.
+    - id: 'ID_WEB_Temperatur_TWE'
+    - id: 'ID_WEB_Temperatur_TWA'
+    - id: 'ID_WEB_Temperatur_TA'
+
+
 
 - platform: rest
   resource: http://openhab:8080/rest/items/HeatPump_Temperature_6
