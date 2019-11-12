@@ -4,18 +4,8 @@
 - platform: luxtronik
   scan_interval: 60
   sensors:
-    - 'ID_WEB_Temperatur_TVL'
+    - id: 'ID_WEB_Temperatur_TVL'
       friendly_name: aanvoertemp
-# - platform: mqtt
-#   name: "Temperature badkamer"
-#   state_topic: "tele/sonoff_badkamer/SENSOR"
-#   value_template: "{{ value_json['SI7021'].Temperature }}"
-#   unit_of_measurement: "°C"
-  #- platform: mqtt
-  #  name: "Humidity badkamer"
-  #  state_topic: "tele/sonoff_badkamer/SENSOR"
-  #  value_template: "{{ value_json['SI7021'].Humidity }}"
-  #  unit_of_measurement: "%"
 - platform: rest
   resource: http://openhab:8080/rest/items/HeatPump_Temperature_6
   name: 'temp. warmwater'
