@@ -21,7 +21,7 @@
   scan_interval: 60
   resource: http://domoticz:8080/json.htm?type=devices&rid=1
   name: 'current power'
-  value_template: '{{ value_json[0].UsageDeliv }}'
+  value_template: '{{ value_json.result[0].UsageDeliv }}'
   unit_of_measurement: "Watt"
 
 # - platform: rest
