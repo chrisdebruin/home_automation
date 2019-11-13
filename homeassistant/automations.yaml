@@ -21,7 +21,7 @@
     state: 'off'
   trigger:
   - platform: numeric_state
-    entity_id: sensor.temp_warmwater
+    entity_id: luxtronik.warmwater
     below: 50
   action:
     service: switch.turn_on
@@ -49,8 +49,8 @@
 - id: '1551989773002'
   alias: Fan low
   trigger:
-  - above: '55'
-    entity_id: sensor.temp_warmwater
+  - above: 55
+    entity_id: luxtronik.warmwater
     platform: numeric_state
   condition:
   - condition: state
@@ -93,9 +93,6 @@
     from: 'on'
     platform: state
     to: 'off'
-  condition:
-  - after: '21:30'
-    condition: time
   action:
   - entity_id: group.all_lights
     service: light.turn_off

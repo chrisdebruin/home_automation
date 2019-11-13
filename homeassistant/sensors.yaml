@@ -17,23 +17,28 @@
     - id: 'ID_WEB_Temperatur_TA'
       friendly_name: Buiten
 
+- platform: rest
+  scan_interval: 60
+  resource: http://domoticz:8080/json.htm?type=devices&rid=1
+  name: 'current power'
+  value_template: '{{ value_json[0].UsageDeliv }}'
+  unit_of_measurement: "Watt"
 
-
-- platform: rest
-  resource: http://openhab:8080/rest/items/HeatPump_Temperature_6
-  name: 'temp. warmwater'
-  value_template: '{{ value_json.state }}'
-  unit_of_measurement: "°C"
-  verify_ssl: false
-- platform: rest
-  resource: http://openhab:8080/rest/items/HeatPump_Temperature_1
-  name: 'Buiten temp.'
-  value_template: '{{ value_json.state }}'
-  unit_of_measurement: "°C"
-  verify_ssl: false
-- platform: rest
-  resource: http://openhab:8080/rest/items/HeatPump_Probe_in
-  name: 'Bron in temp.'
-  value_template: '{{ value_json.state }}'
-  unit_of_measurement: "°C"
-  verify_ssl: false
+# - platform: rest
+#   resource: http://openhab:8080/rest/items/HeatPump_Temperature_6
+#   name: 'temp. warmwater'
+#   value_template: '{{ value_json.state }}'
+#   unit_of_measurement: "°C"
+#   verify_ssl: false
+# - platform: rest
+#   resource: http://openhab:8080/rest/items/HeatPump_Temperature_1
+#   name: 'Buiten temp.'
+#   value_template: '{{ value_json.state }}'
+#   unit_of_measurement: "°C"
+#   verify_ssl: false
+# - platform: rest
+#   resource: http://openhab:8080/rest/items/HeatPump_Probe_in
+#   name: 'Bron in temp.'
+#   value_template: '{{ value_json.state }}'
+#   unit_of_measurement: "°C"
+#   verify_ssl: false
