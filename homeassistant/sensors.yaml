@@ -21,5 +21,27 @@
   scan_interval: 60
   resource: http://domoticz:8080/json.htm?type=devices&rid=1
   name: 'current power'
-  value_template: '{{ value_json.result[0].Usage }}'
-  unit_of_measurement: "Watt"
+  value_template: '{{ value_json.result[0].Usage.rstrip("Watt") | int }}'
+  unit_of_measurement: "W"
+  device_class: power
+- platform: rest
+  scan_interval: 60
+  resource: http://domoticz:8080/json.htm?type=devices&rid=1
+  name: 'current generation'
+  value_template: '{{ value_json.result[0].UsageDeliv.rstrip("Watt") | int }}'
+  unit_of_measurement: "W"
+  device_class: power
+- platform: rest
+  scan_interval: 60
+  resource: http://domoticz:8080/json.htm?type=devices&rid=1
+  name: 'total used today'
+  value_template: '{{ value_json.result[0].CounterToday.rstrip("kWh") | int }}'
+  unit_of_measurement: "kW"
+  device_class: power
+- platform: rest
+  scan_interval: 60
+  resource: http://domoticz:8080/json.htm?type=devices&rid=1
+  name: 'total delivered today'
+  value_template: '{{ value_json.result[0].CounterDelivToday.rstrip("kWh") | int }}'
+  unit_of_measurement: "kW"
+  device_class: power
