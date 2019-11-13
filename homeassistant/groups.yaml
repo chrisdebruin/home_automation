@@ -9,3 +9,11 @@ office:
   entities:
     - switch.office_chris
     - switch.office_mirjam
+
+power:
+  name: power
+  entities:
+    - sensor.current_power
+    - sensor.current_generation
+    - sensor.total_used_today
+    - sensor.total_delivered_today

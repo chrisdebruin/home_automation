@@ -35,13 +35,13 @@
   scan_interval: 60
   resource: http://domoticz:8080/json.htm?type=devices&rid=1
   name: 'total used today'
-  value_template: '{{ value_json.result[0].CounterToday.rstrip("kWh") | int }}'
+  value_template: '{{ value_json.result[0].CounterToday.rstrip("kWh") | float }}'
   unit_of_measurement: "kW"
   device_class: power
 - platform: rest
   scan_interval: 60
   resource: http://domoticz:8080/json.htm?type=devices&rid=1
   name: 'total delivered today'
-  value_template: '{{ value_json.result[0].CounterDelivToday.rstrip("kWh") | int }}'
+  value_template: '{{ value_json.result[0].CounterDelivToday.rstrip("kWh") | float }}'
   unit_of_measurement: "kW"
   device_class: power
