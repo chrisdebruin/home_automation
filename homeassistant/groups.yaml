@@ -12,6 +12,7 @@ office:
 
 power:
   name: power
+  control: hidden
   entities:
     - sensor.current_power
     - sensor.current_generation

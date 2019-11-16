@@ -16,6 +16,10 @@
       friendly_name: Bron uit
     - id: 'ID_WEB_Temperatur_TA'
       friendly_name: Buiten
+    - id: 'ID_WEB_HauptMenuStatus_Zeile1'
+      friendly_name: Status
+    - id: 'ID_WEB_WMZ_Seit'
+      friendly_name: Totaal
 
 - platform: rest
   scan_interval: 60
