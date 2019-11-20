@@ -18,3 +18,9 @@ power:
     - sensor.current_generation
     - sensor.total_used_today
     - sensor.total_delivered_today
+
+heatpump:
+  name: heatpump
+  control: hidden
+  entities:
+    - luxtronik.*
