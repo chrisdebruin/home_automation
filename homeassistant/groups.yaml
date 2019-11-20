@@ -23,4 +23,11 @@ heatpump:
   name: heatpump
   control: hidden
   entities:
-    - luxtronik.*
+    - luxtronik.buiten
+    - luxtronik.status
+    - luxtronik.warmwater
+    - luxtronik.aanvoer
+    - luxtronik.bron_in
+    - luxtronik.bron_uit
+    - luxtronik.retour
+    - luxtronik.totaal
