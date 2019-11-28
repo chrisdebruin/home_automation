@@ -91,7 +91,7 @@ sun:
 # Cloud
 cloud:
 
-# ios:
+mobile_app:
 
 zone:
   - name: Home
