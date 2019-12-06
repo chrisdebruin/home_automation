@@ -4,7 +4,7 @@ non_hue_lights:
     - light.livingroom_dinner
     - light.livingroom
     - light.kerstboom
-    - light.lichtsnoer
+    - light.livingroom_lichtsnoer
     - light.kerstster
 
 office:
