@@ -6,13 +6,13 @@
     to: 'on'
   condition:
   - condition: state
-    entity_id: light.hue_white_lamp_1
+    entity_id: light.hue_color_lamp_3
     state: 'on'
   action:
     service: light.turn_on
-    entity_id: light.hue_white_lamp_1
+    entity_id: light.hue_color_lamp_3
     data:
-      brightness: 50
+      brightness: 25
 - id: fan_high
   alias: fan high
   condition:

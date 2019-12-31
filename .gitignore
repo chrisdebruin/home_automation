@@ -4,3 +4,5 @@ homeassistant/home-assistant_v2.db
 homeassistant/.storage
 domoticz/config/
 *.log
+.cloud/
+__pycache__/

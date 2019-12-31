@@ -1,24 +1,8 @@
 version: '2.2'
 
 services:
-  openhab:
-    image: "openhab/openhab:2.4.0-armhf-alpine"
-    restart: unless-stopped
-    # network_mode: host
-    ports:
-      - 8081:8080
-      - 8443:8443
-    volumes:
-      - "/etc/localtime:/etc/localtime:ro"
-      - "/etc/timezone:/etc/timezone:ro"
-      - "./openhab2/openhab_addons:/openhab/addons"
-      - "./openhab2/openhab_conf:/openhab/conf"
-    environment:
-      OPENHAB_HTTP_PORT: "8080"
-      OPENHAB_HTTPS_PORT: "8443"
-      EXTRA_JAVA_OPTS: "-Duser.timezone=Europe/Amsterdam"
   homeassistant:
-    image: homeassistant/raspberrypi3-homeassistant
+    image: homeassistant/raspberrypi3-homeassistant:stable
     ports:
       - 8123:8123
     volumes:
