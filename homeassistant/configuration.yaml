@@ -16,9 +16,9 @@ homeassistant:
    - type: homeassistant
 
 http:
-  ssl_certificate: /config/certs/localchris.duckdns.org/fullchain.pem
-  ssl_key: /config/certs/localchris.duckdns.org/privkey.pem
-  base_url: localchris.duckdns.org:8123
+  ssl_certificate: '/config/certs/localchris.duckdns.org/fullchain.pem'
+  ssl_key: '/config/certs/localchris.duckdns.org/privkey.pem'
+  # base_url: https://localchris.duckdns.org:8123
 
 # Show links to resources in log and frontend
 #introduction:
