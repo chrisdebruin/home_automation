@@ -15,10 +15,10 @@ homeassistant:
   auth_providers:
    - type: homeassistant
 
-http:
-  ssl_certificate: ./dehydrated/certs/localchris.duckdns.org/fullchain.pem
-  ssl_key: ./dehydrated/certs/localchris.duckdns.org/privkey.pem
-  base_url: localchris.duckdns.org:8123
+# http:
+#   ssl_certificate: /dehydrated/certs/localchris.duckdns.org/fullchain.pem
+#   ssl_key: /dehydrated/certs/localchris.duckdns.org/privkey.pem
+#   base_url: localchris.duckdns.org:8123
 
 # Show links to resources in log and frontend
 #introduction:
