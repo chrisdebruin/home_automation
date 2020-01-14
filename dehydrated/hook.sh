@@ -2,10 +2,10 @@
 set -e
 set -u
 set -o pipefail
- 
-domain="myhome"
-token="your-duckdns-token"
- 
+
+domain="localchris"
+token=$DUCKDNS_TOKEN
+
 case "$1" in
     "deploy_challenge")
         curl "https://www.duckdns.org/update?domains=$domain&token=$token&txt=$4"
@@ -16,7 +16,7 @@ case "$1" in
         echo
         ;;
     "deploy_cert")
-        sudo systemctl restart home-assistant@homeassistant.service
+        /usr/local/bin/docker-compose -f /home/pirate/home_automation/docker-compose.yml restart homeassistant
         ;;
     "unchanged_cert")
         ;;
