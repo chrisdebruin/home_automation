@@ -7,7 +7,7 @@ services:
       - 8123:8123
     volumes:
       - "./homeassistant:/config"
-      - "./dehydrated:/dehydrated"
+      - "./dehydrated/certs:/config/certs"
     environment:
       TZ: Europe/Amsterdam
     restart: unless-stopped
