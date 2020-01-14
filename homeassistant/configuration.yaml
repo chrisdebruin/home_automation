@@ -14,9 +14,11 @@ homeassistant:
   customize: !include customize.yaml
   auth_providers:
    - type: homeassistant
-   - type: trusted_networks
-     trusted_networks:
-       - 192.168.1.0/24
+
+http:
+  ssl_certificate: ./dehydrated/certs/myhome.duckdns.org/fullchain.pem
+  ssl_key: ./dehydrated/certs/myhome.duckdns.org/privkey.pem
+  base_url: localchris.duckdns.org:8123
 
 # Show links to resources in log and frontend
 #introduction:
