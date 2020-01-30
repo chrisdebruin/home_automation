@@ -117,6 +117,13 @@ luxtronik:
 owntracks:
   max_gps_accuracy: 200
 
+camera:
+  - platform: generic
+    still_image_url: http://192.168.1.64:8080/Streaming/Channels/1/picture
+    stream_source: rtsp://192.168.1.64:554/
+    username: viewer
+    password: !secret camera_password
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
