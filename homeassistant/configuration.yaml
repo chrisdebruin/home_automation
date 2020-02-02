@@ -114,15 +114,15 @@ luxtronik:
   host: "192.168.1.20"
   port: 8889
 
-owntracks:
-  max_gps_accuracy: 200
-
 camera:
   - platform: generic
+    name: Front door
     still_image_url: http://192.168.1.64:8080/Streaming/Channels/1/picture
     stream_source: rtsp://192.168.1.64:554/
     username: viewer
     password: !secret camera_password
+    authentication: digest
+    verify_ssl: false
 
 stream:
 
