@@ -32,3 +32,18 @@ services:
     restart: unless-stopped
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
+
+  ftpd_server:
+    image: stilliard/pure-ftpd
+    container_name: pure-ftpd
+    ports:
+      - "21:21"
+    volumes:
+      - "/media/ssd:/home/hikvision/"
+      - "/media/passwd:/etc/pure-ftpd/passwd"
+    environment:
+      PUBLICHOST: "localhost"
+      FTP_USER_NAME: hikvision
+      FTP_USER_PASS: mypass
+      FTP_USER_HOME: /home/hikvision
+    restart: always
