@@ -38,8 +38,25 @@ services:
     ports:
       - "2100:2100"
     volumes:
-      - "./media/ssd:/data"
+      - "/media/ssd:/data"
+      - "/media/ssd/hikvision:/home/ftpusers/hikvision"
     environment:
       - "TZ=Europe/Amsterdam"
       - "AUTH_METHOD=puredb"
-    restart: always
+    restart: unless-stopped
+  nfs4:
+    image: grewhit/armhf-nfs4-server
+      cap_add:
+      - SYS_ADMIN
+    volumes:
+      - /media/ssd/video:/mnt
+    environment:
+      - NFS_EXPORT_DIR_1=/mnt
+      - NFS_EXPORT_DOMAIN_1=\*
+      - NFS_EXPORT_OPTIONS_1="rw,fsid=0,root_squash,no_subtree_check,insecure"
+    ports:
+      - "111:111/tcp"
+      - "111:111/udp"
+      - "2049:2049/tcp"
+      - "2049:2049/udp"
+    restart: unless-stopped
