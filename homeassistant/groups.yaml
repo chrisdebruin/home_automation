@@ -3,9 +3,9 @@ non_hue_lights:
   entities:
     - light.livingroom_dinner
     - light.livingroom
-    - light.kerstboom
     - light.livingroom_lichtsnoer
-    - light.kerstster
+    # - light.kerstster
+    # - light.kerstboom
 
 office:
   name: office

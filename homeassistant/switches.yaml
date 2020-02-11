@@ -10,7 +10,7 @@
   retain: true
 - platform: mqtt
   name: "Office Mirjam"
-  state_topic: "stat/sonoff_office_mirjam/POWER"
-  command_topic: "cmnd/sonoff_office_mirjam/power"
+  state_topic: "stat/sonoff_xmas_tree/POWER"
+  command_topic: "cmnd/sonoff_xmas_tree/power"
   retain: true
 
