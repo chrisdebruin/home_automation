@@ -13,13 +13,3 @@
   state_topic: "stat/sonoff_livingroom_bulbs/POWER"
   command_topic: "cmnd/sonoff_livingroom_bulbs/power"
   retain: true
-# - platform: mqtt
-#   name: "kerstboom"
-#   state_topic: "stat/sonoff_xmas_tree/POWER"
-#   command_topic: "cmnd/sonoff_xmas_tree/power"
-#   retain: true
-# - platform: mqtt
-#   name: "kerstster"
-#   state_topic: "stat/sonoff_xmas_star/POWER"
-#   command_topic: "cmnd/sonoff_xmas_star/power"
-#   retain: true
