@@ -119,8 +119,6 @@ camera:
     name: Front door
     still_image_url: !secret image_url
     stream_source: !secret rtsp_url
-    username: viewer
-    password: !secret camera_password
 
 stream:
 
