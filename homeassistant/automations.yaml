@@ -96,3 +96,18 @@
   action:
   - entity_id: group.all_lights
     service: light.turn_off
+
+- alias: "Doorbell Notifications"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.doorbell_button
+    to: 'on'
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        title: Doorbell
+        message: Ding dong! Someone is at the door!
+        data:
+          attachment:
+            content-type: jpeg
+            url: !secret image_url

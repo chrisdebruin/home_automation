@@ -117,7 +117,7 @@ luxtronik:
 camera:
   - platform: generic
     name: Front door
-    still_image_url: http://192.168.1.64:8080/Streaming/Channels/1/picture
+    still_image_url: !secret image_url
     stream_source: !secret rtsp_url
     username: viewer
     password: !secret camera_password
