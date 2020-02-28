@@ -106,13 +106,12 @@
     - service: camera.snapshot
       data:
         entity_id: camera.front_door
-        filename: /tmp/snapshot_front_door.jpg
-    - delay:
-        seconds: 5
+        filename: !secret snapshot_path
     - service: notify.mobile_app_iphone
       data:
         title: Doorbell
         message: Ding dong! Someone is at the door!
         data:
           attachment:
-            filename: /tmp/snapshot_front_door.jpg
+            content-type: jpeg
+            url: !secret snapshot_url
