@@ -103,11 +103,16 @@
     entity_id: binary_sensor.doorbell_button
     to: 'on'
   action:
+    - service: camera.snapshot
+      data:
+        entity_id: camera.front_door
+        filename: /tmp/snapshot_front_door.jpg
+    - delay:
+        seconds: 5
     - service: notify.mobile_app_iphone
       data:
         title: Doorbell
         message: Ding dong! Someone is at the door!
         data:
           attachment:
-            content-type: jpeg
-            url: !secret image_url
+            filename: /tmp/snapshot_front_door.jpg

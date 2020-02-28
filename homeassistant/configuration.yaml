@@ -14,6 +14,9 @@ homeassistant:
   customize: !include customize.yaml
   auth_providers:
    - type: homeassistant
+  whitelist_external_dirs:
+    - /tmp
+
 
 http:
   ssl_certificate: '/config/certs/localchris.duckdns.org/fullchain.pem'
@@ -121,6 +124,7 @@ camera:
     stream_source: !secret rtsp_url
 
 stream:
+
 
 group: !include groups.yaml
 automation: !include automations.yaml
