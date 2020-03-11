@@ -80,9 +80,6 @@
     - wed
     - thu
     - fri
-  - condition: state
-    entity_id: device_tracker.iphone_x
-    state: home
   action:
   - service: switch.turn_on
     entity_id: switch.office_chris
@@ -98,6 +95,7 @@
     service: light.turn_off
 
 - alias: "Doorbell Notifications"
+  id: 'doorbell_notification'
   trigger:
     platform: state
     entity_id: binary_sensor.doorbell_button
@@ -112,6 +110,7 @@
         title: Doorbell
         message: Ding dong! Someone is at the door!
         data:
+          url: !secret snapshot_url
           attachment:
             content-type: jpeg
             url: !secret snapshot_url
