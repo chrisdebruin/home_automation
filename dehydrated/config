@@ -2,6 +2,6 @@
 CHALLENGETYPE="dns-01"
 
 # Script to execute the DNS challenge and run after cert generation
-HOOK="${BASEDIR}/hook.sh"
+HOOK="/home/pirate/home_automation/dehydrated/hook.sh"
 
 CERTDIR=/home/pirate/home_automation/homeassistant/certs
