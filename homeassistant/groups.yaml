@@ -8,7 +8,9 @@ non_hue_lights:
 livingroom:
   name: livingroom
   entities:
-    - non_hue_lights
+    - light.livingroom_dinner
+    - light.livingroom
+    - light.livingroom_lichtsnoer
     - switch.tv
 
 office:
