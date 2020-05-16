@@ -84,7 +84,7 @@
   - service: switch.turn_on
     entity_id: switch.office_chris
 - id: '1573584001607'
-  alias: Turn off all lights
+  alias: Power off
   trigger:
   - entity_id: light.keuken
     from: 'on'
@@ -93,6 +93,8 @@
   action:
   - entity_id: group.all_lights
     service: light.turn_off
+  - entity_id: switch.tv
+    service: switch.turn_off
 
 - alias: "Doorbell Notifications"
   id: 'doorbell_notification'
@@ -114,3 +116,13 @@
           attachment:
             content-type: jpeg
             url: !secret snapshot_url
+- id: '1589640222465'
+  alias: Turn on TV
+  description: ''
+  trigger:
+  - at: 09:00
+    platform: time
+  condition: []
+  action:
+  - entity_id: switch.tv
+    service: switch.turn_on
