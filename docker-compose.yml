@@ -32,15 +32,3 @@ services:
     restart: unless-stopped
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
-  ftp:
-    image: crazymax/pure-ftpd
-    container_name: pureftpd
-    ports:
-      - "2100:2100"
-    volumes:
-      - "/media/ssd:/data"
-      - "/media/ssd/hikvision:/home/hikvision"
-    environment:
-      - "TZ=Europe/Amsterdam"
-      - "AUTH_METHOD=puredb"
-    restart: unless-stopped

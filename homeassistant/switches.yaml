@@ -13,4 +13,8 @@
   state_topic: "stat/sonoff_xmas_tree/POWER"
   command_topic: "cmnd/sonoff_xmas_tree/power"
   retain: true
-
+- platform: mqtt
+  name: "TV"
+  state_topic: "stat/sonoff_tv/POWER"
+  command_topic: "cmnd/sonoff_tv/power"
+  retain: true

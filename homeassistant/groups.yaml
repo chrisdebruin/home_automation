@@ -5,6 +5,12 @@ non_hue_lights:
     - light.livingroom
     - light.livingroom_lichtsnoer
 
+livingroom:
+  name: livingroom
+  entities:
+    - non_hue_lights
+    - switch.tv
+
 office:
   name: office
   entities:
