@@ -16,7 +16,7 @@ case "$1" in
         echo
         ;;
     "deploy_cert")
-        /usr/local/bin/docker-compose -f /home/pirate/home_automation/docker-compose.yml restart homeassistant
+        /usr/bin/docker-compose -f ~/home_automation/docker-compose.yml restart homeassistant
         ;;
     "unchanged_cert")
         ;;
