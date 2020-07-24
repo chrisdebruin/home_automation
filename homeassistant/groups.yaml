@@ -21,7 +21,6 @@ office:
 
 power:
   name: power
-  control: hidden
   entities:
     - sensor.current_power
     - sensor.current_generation
@@ -30,7 +29,6 @@ power:
 
 heatpump:
   name: heatpump
-  control: hidden
   entities:
     - luxtronik.buiten
     - luxtronik.status

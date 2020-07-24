@@ -80,21 +80,12 @@ logbook:
 # Enables a map showing the location of tracked devices
 map:
 
-media_player:
-  - platform: samsungtv
-    name: tv
-    host: 192.168.1.2
-    mac: 90:F1:AA:AD:18:8A
-
 # Track the sun
 sun:
 
     #- platform: dsmr
     # port: /dev/ttyUSB0
     # dsmr_version: 4
-
-# Cloud
-cloud:
 
 mobile_app:
 
@@ -129,7 +120,6 @@ mqtt:
   broker: 192.168.1.5
   username: !secret mqtt_username
   password: !secret mqtt_password
-
 
 group: !include groups.yaml
 automation: !include automations.yaml
