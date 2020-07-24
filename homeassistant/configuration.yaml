@@ -125,6 +125,11 @@ camera:
 
 stream:
 
+mqtt:
+  broker: 192.168.1.5
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
 
 group: !include groups.yaml
 automation: !include automations.yaml
