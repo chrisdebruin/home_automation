@@ -2,19 +2,15 @@
   name: "Afzuiging"
   state_topic: "stat/sonoff_afzuiging/POWER"
   command_topic: "cmnd/sonoff_afzuiging/power"
-  retain: true
 - platform: mqtt
   name: "Office Chris"
   state_topic: "stat/sonoff_office_chris/POWER"
   command_topic: "cmnd/sonoff_office_chris/power"
-  retain: true
 - platform: mqtt
   name: "Office Mirjam"
   state_topic: "stat/sonoff_xmas_tree/POWER"
   command_topic: "cmnd/sonoff_xmas_tree/power"
-  retain: true
 - platform: mqtt
   name: "TV"
   state_topic: "stat/sonoff_tv/POWER"
   command_topic: "cmnd/sonoff_tv/power"
-  retain: true
