@@ -59,14 +59,6 @@
   action:
   - service: switch.turn_off
     entity_id: switch.afzuiging
-- id: '1555003172431'
-  alias: Turn off office power
-  trigger:
-  - at: '21:00'
-    platform: time
-  action:
-  - service: switch.turn_off
-    entity_id: group.office
 - id: turn_on_office_power
   alias: Turn on office power
   trigger:
@@ -82,9 +74,12 @@
     - fri
   action:
   - service: switch.turn_on
-    entity_id: switch.office_chris
+    entity_id:  group.office
 - id: '1573584001607'
   alias: Power off
+  condition:
+    - condition: time
+      after: 20:00
   trigger:
   - entity_id: light.keuken
     from: 'on'
@@ -95,6 +90,8 @@
     service: light.turn_off
   - entity_id: switch.tv
     service: switch.turn_off
+  - entity_id: group.office
+    service: switch.turn_on
 
 - alias: "Doorbell Notifications"
   id: 'doorbell_notification'
