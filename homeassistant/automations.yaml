@@ -91,7 +91,7 @@
   - entity_id: switch.tv
     service: switch.turn_off
   - entity_id: group.office
-    service: switch.turn_on
+    service: switch.turn_off
 
 - alias: "Doorbell Notifications"
   id: 'doorbell_notification'
