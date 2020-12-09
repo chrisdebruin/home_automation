@@ -4,6 +4,7 @@ non_hue_lights:
     - light.livingroom_dinner
     - light.livingroom
     - light.livingroom_lichtsnoer
+    - light.kerstster
 
 livingroom:
   name: livingroom
@@ -12,6 +13,11 @@ livingroom:
     - light.livingroom
     - light.livingroom_lichtsnoer
     - switch.tv
+
+kitchen:
+  name: kitchen
+  entities:
+    - light.kerstster
 
 office:
   name: office
