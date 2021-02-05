@@ -1,6 +1,3 @@
-# Weather prediction
-- platform: yr
-
 - platform: luxtronik
   scan_interval: 60
   sensors:
