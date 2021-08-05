@@ -2,20 +2,28 @@
   scan_interval: 60
   sensors:
     - id: 'ID_WEB_Temperatur_TVL'
+      group: calculations
       friendly_name: Aanvoer
     - id: 'ID_WEB_Temperatur_TRL'
+      group: calculations
       friendly_name: Retour
     - id: 'ID_WEB_Temperatur_TBW'
+      group: calculations
       friendly_name: Warmwater
     - id: 'ID_WEB_Temperatur_TWE'
+      group: calculations
       friendly_name: Bron in
     - id: 'ID_WEB_Temperatur_TWA'
+      group: calculations
       friendly_name: Bron uit
     - id: 'ID_WEB_Temperatur_TA'
+      group: calculations
       friendly_name: Buiten
     - id: 'ID_WEB_HauptMenuStatus_Zeile3'
+      group: calculations
       friendly_name: Status
     - id: 'ID_WEB_WMZ_Seit'
+      group: calculations
       friendly_name: Totaal
 
 - platform: rest
