@@ -1,98 +1,117 @@
-"""
-Support for monitoring the state of a Luxtronik heatpump.
-
-For more details about this component, please refer to the documentation at
-https://home-assistant.io/components/sensor.luxtronik/
-"""
+"""Support for Luxtronik heatpump binary states."""
 import logging
 
 import voluptuous as vol
 
-from homeassistant.components.binary_sensor import (
-    BinarySensorDevice, PLATFORM_SCHEMA)
+from homeassistant.components.binary_sensor import PLATFORM_SCHEMA, BinarySensorEntity
+from homeassistant.const import CONF_FRIENDLY_NAME, CONF_ICON, CONF_ID, CONF_SENSORS
 import homeassistant.helpers.config_validation as cv
-from . import (
-    CONF_SENSORS, CONF_ID, DATA_LUXTRONIK, DOMAIN, ENTITY_ID_FORMAT,
-    CONF_INVERT_STATE)
-from homeassistant.const import (CONF_FRIENDLY_NAME)
 from homeassistant.util import slugify
+
+from . import DOMAIN, ENTITY_ID_FORMAT
+from .const import (
+    CONF_CALCULATIONS,
+    CONF_GROUP,
+    CONF_INVERT_STATE,
+    CONF_PARAMETERS,
+    CONF_VISIBILITIES,
+)
+
+ICON_ON = "mdi:check-circle-outline"
+ICON_OFF = "mdi:circle-outline"
 
 _LOGGER = logging.getLogger(__name__)
 
-DEPENDENCIES = ['luxtronik']
+DEFAULT_DEVICE_CLASS = None
 
-DEFAULT_DEVICE_CLASS = "binary_sensor"
-
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Required(CONF_SENSORS): vol.All(cv.ensure_list, [
-        {vol.Required(CONF_ID): cv.string,
-         vol.Optional(CONF_FRIENDLY_NAME, default=""): cv.string,
-         vol.Optional(CONF_INVERT_STATE, default=False): cv.boolean}
-    ])
-})
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
+    {
+        vol.Required(CONF_SENSORS): vol.All(
+            cv.ensure_list,
+            [
+                {
+                    vol.Required(CONF_GROUP): vol.All(
+                        cv.string,
+                        vol.In([CONF_PARAMETERS, CONF_CALCULATIONS, CONF_VISIBILITIES]),
+                    ),
+                    vol.Required(CONF_ID): cv.string,
+                    vol.Optional(CONF_FRIENDLY_NAME): cv.string,
+                    vol.Optional(CONF_ICON): cv.string,
+                    vol.Optional(CONF_INVERT_STATE, default=False): cv.boolean,
+                }
+            ],
+        )
+    }
+)
 
 
 def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up the Luxtronik binary sensor."""
-    lt = hass.data.get(DATA_LUXTRONIK)
-    if not lt:
+    luxtronik = hass.data.get(DOMAIN)
+    if not luxtronik:
         return False
 
     sensors = config.get(CONF_SENSORS)
 
     entities = []
-    for sensor in sensors:
-        if lt.valid_sensor_id(sensor["id"]):
-            entities.append(LuxtronikBinarySensor(lt, sensor))
+    for sensor_cfg in sensors:
+        sensor = luxtronik.get_sensor(sensor_cfg[CONF_GROUP], sensor_cfg[CONF_ID])
+        if sensor:
+            entities.append(
+                LuxtronikBinarySensor(
+                    luxtronik,
+                    sensor,
+                    sensor_cfg.get(CONF_FRIENDLY_NAME),
+                    sensor_cfg.get(CONF_ICON),
+                    sensor_cfg.get(CONF_INVERT_STATE),
+                )
+            )
         else:
-            _LOGGER.warning(f"Invalid Luxtronik ID %s", sensor["id"])
+            _LOGGER.warning(
+                "Invalid Luxtronik ID %s in group %s",
+                sensor_cfg[CONF_ID],
+                sensor_cfg[CONF_GROUP],
+            )
 
     add_entities(entities, True)
 
 
-class LuxtronikBinarySensor(BinarySensorDevice):
+class LuxtronikBinarySensor(BinarySensorEntity):
     """Representation of a Luxtronik binary sensor."""
 
-    def __init__(self, lt, sensor):
+    def __init__(self, luxtronik, sensor, friendly_name, icon, invert_state):
         """Initialize a new Luxtronik binary sensor."""
-        self._luxtronik = lt
-        self._sensor = sensor["id"]
-        self._name = sensor["friendly_name"]
-        self._invert = sensor["invert"]
-        self._state = None
-        self._device_class = None
+        self._luxtronik = luxtronik
+        self._sensor = sensor
+        self._name = friendly_name
+        self._icon = icon
+        self._invert = invert_state
 
     @property
     def entity_id(self):
         """Return the entity_id of the sensor."""
-        if self._name:
-            return ENTITY_ID_FORMAT.format(slugify(self._name))
-        else:
-            return ENTITY_ID_FORMAT.format(slugify(self._sensor))
+        if not self._name:
+            return ENTITY_ID_FORMAT.format(slugify(self._sensor.name))
+        return ENTITY_ID_FORMAT.format(slugify(self._name))
 
     @property
     def icon(self):
         """Icon to use in the frontend, if any."""
-        if self.is_on:
-            return "mdi:check-circle-outline"
-        else:
-            return "mdi:circle-outline"
+        return self._icon
 
     @property
     def name(self):
         """Return the name of the sensor."""
-        if self._name:
-            return self._name
-        else:
-            return ENTITY_ID_FORMAT.format(slugify(self._sensor))
+        if not self._name:
+            return self._sensor.name
+        return self._name
 
     @property
     def is_on(self):
         """Return true if binary sensor is on."""
         if self._invert:
-            return not self._state
-        else:
-            return self._state
+            return not self._sensor.value
+        return self._sensor.value
 
     @property
     def device_class(self):
@@ -102,9 +121,3 @@ class LuxtronikBinarySensor(BinarySensorDevice):
     def update(self):
         """Get the latest status and use it to update our sensor state."""
         self._luxtronik.update()
-        data = self._luxtronik.data
-        # use get() here!!!
-        for category in data:
-            for value in data[category]:
-                if data[category][value]['id'] == self._sensor:
-                    self._state = data[category][value]['value']
