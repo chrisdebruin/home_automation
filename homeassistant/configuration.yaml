@@ -14,7 +14,7 @@ homeassistant:
   customize: !include customize.yaml
   auth_providers:
    - type: homeassistant
-  whitelist_external_dirs:
+  allowlist_external_dirs:
     - /tmp
 
 
@@ -120,6 +120,8 @@ mqtt:
   broker: 192.168.1.5
   username: !secret mqtt_username
   password: !secret mqtt_password
+
+energy:
 
 group: !include groups.yaml
 automation: !include automations.yaml
