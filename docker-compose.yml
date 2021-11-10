@@ -2,7 +2,7 @@ version: '2.2'
 
 services:
   homeassistant:
-    image: image: "ghcr.io/home-assistant/raspberrypi4-homeassistant:stable"
+    image: "ghcr.io/home-assistant/raspberrypi4-homeassistant:stable"
     ports:
       - 8123:8123
     volumes:
