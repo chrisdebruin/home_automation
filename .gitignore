@@ -5,8 +5,7 @@ homeassistant/home-assistant_v2.db.*
 homeassistant/.storage
 homeassistant/blueprints/
 homeassistant/certs/
-homeassistant/www
-homeassistant/custom_components
+homeassistant/www/
 homeassistant/.HA_VERSION
 homeassistant/.uuid
 
