@@ -31,11 +31,9 @@
   name: production_inverter_1
   unit_prefix: k
   round: 2
-  method: left
 
 - platform: integration
   source: sensor.inverter_none
   name: production_inverter_2
   unit_prefix: k
   round: 2
-  method: left
