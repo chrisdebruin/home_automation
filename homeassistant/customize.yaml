@@ -1,0 +1,4 @@
+sensor.pv_1_eday:
+  state_class: total_increasing
+sensor.pv_2_eday:
+  state_class: total_increasing
