@@ -109,15 +109,15 @@
 - alias: "Doorbell Notifications"
   id: 'doorbell_notification'
   trigger:
-    - platform: state
-      entity_id: switch.shelly1_483fda941403
-      to: 'on'
-  # condition:
-  #   - condition: template
-  #     value_template: >-
-  #       {{ (as_timestamp(now()) -
-  #       as_timestamp(states.automation.doorbell_notification.attributes.last_triggered
-  #       | default(0)) | int > 5)}}
+    - platform: mqtt
+      topic: shellies/doorbell/input/0
+      payload: '1'
+  condition:
+    - condition: template
+      value_template: >-
+        {{ (as_timestamp(now()) -
+        as_timestamp(states.automation.doorbell_notification.attributes.last_triggered
+        | default(0)) | int > 5)}}
   action:
     - service: camera.snapshot
       data:
