@@ -118,6 +118,9 @@
         {{ (as_timestamp(now()) -
         as_timestamp(state_attr('automation.doorbell_notification', 'last_triggered')
         | default(0)) | int > 5)}}
+  variables:
+    snapshot_url: !secret snapshot_url
+    url: "{{ snapshot_url }}?{{ now().strftime('%Y%m%d-%H%M%S') }}"
   action:
     - service: camera.snapshot
       data:
@@ -128,10 +131,10 @@
         title: Doorbell
         message: Ding dong! Someone is at the door!
         data:
-          url: !secret snapshot_url
+          url: "{{ url }}"
           attachment:
             content-type: jpeg
-            url: !secret snapshot_url
+            url: "{{ url }}"
 - id: '1589640222465'
   alias: Turn on TV
   description: ''
