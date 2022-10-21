@@ -76,7 +76,7 @@
   - service: switch.turn_on
     entity_id:  group.office
 - id: '1573584001607'
-  alias: Power off
+  alias: Power off via switch
   condition:
     - condition: time
       after: '20:00:00'
@@ -93,18 +93,37 @@
   - entity_id: group.office
     service: switch.turn_off
 
+- id: power_off_manual
+  alias: Power off manual
+  condition:
+    - condition: time
+      after: '20:00:00'
+  action:
+  - entity_id: group.livingroom
+    service: light.turn_off
+  - entity_id: group.kitchen
+    service: light.turn_off
+  - entity_id: group.office
+    service: switch.turn_off
+
 - alias: "Doorbell Notifications"
   id: 'doorbell_notification'
   trigger:
-    platform: state
-    entity_id: binary_sensor.doorbell_button
-    to: 'on'
+    - platform: state
+      entity_id: switch.shelly1_483fda941403
+      to: 'on'
+  condition:
+    - condition: template
+      value_template: >-
+        {{ (as_timestamp(now()) -
+        as_timestamp(states.automation.doorbell_notification.attributes.last_triggered
+        | default(0)) | int > 5)}}
   action:
     - service: camera.snapshot
       data:
         entity_id: camera.front_door
         filename: !secret snapshot_path
-    - service: notify.mobile_app_iphone
+    - service: notify.notify
       data:
         title: Doorbell
         message: Ding dong! Someone is at the door!

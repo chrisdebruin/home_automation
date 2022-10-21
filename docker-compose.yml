@@ -25,14 +25,3 @@ services:
       - 1883:1883
       - 8883:8883
     restart: unless-stopped
-  domoticz:
-    image: linuxserver/domoticz:arm32v7-aaed3481-ls14
-    ports:
-      - 8080:8080
-    volumes:
-      - "./domoticz/config:/config"
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Amsterdam
-    restart: unless-stopped
