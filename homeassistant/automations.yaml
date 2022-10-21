@@ -116,7 +116,7 @@
     - condition: template
       value_template: >-
         {{ (as_timestamp(now()) -
-        as_timestamp(states.automation.doorbell_notification.attributes.last_triggered
+        as_timestamp(state_attr('automation.doorbell_notification', 'last_triggered')
         | default(0)) | int > 5)}}
   action:
     - service: camera.snapshot
