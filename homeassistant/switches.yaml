@@ -14,3 +14,9 @@
   name: "TV"
   state_topic: "stat/sonoff_tv/POWER"
   command_topic: "cmnd/sonoff_tv/power"
+- platform: rest
+  name: shelly_doorbell_chime_status
+  resource: http://192.168.1.171/settings/relay/0
+  body_on: 'btn_type=toggle'
+  body_off: 'btn_type=detached'
+  is_on_template: '{{ value_json.btn_type == "toggle" }}'
