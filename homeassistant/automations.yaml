@@ -119,13 +119,16 @@
         as_timestamp(state_attr('automation.doorbell_notification', 'last_triggered')
         | default(0)) | int > 5)}}
   variables:
+    secret_dir: !secret secret_dir
     snapshot_url: !secret snapshot_url
-    url: "{{ snapshot_url }}?{{ now().strftime('%Y%m%d-%H%M%S') }}"
+    filename: "{{ now().strftime('%Y%m%d%H%M%S') }}.jpg"
+    snapshot_path: "/config/www/{{ secret_dir }}/{{ filename }}"
+    url: "{{ snapshot_url }}/{{ secret_dir }}/{{ filename }}"
   action:
     - service: camera.snapshot
       data:
         entity_id: camera.front_door
-        filename: !secret snapshot_path
+        filename: "{{ snapshot_path }}"
     - service: notify.notify
       data:
         title: Doorbell
