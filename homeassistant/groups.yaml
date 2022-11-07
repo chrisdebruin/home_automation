@@ -13,6 +13,7 @@ hue_lights:
     - light.hue_color_lamp_2
     - light.hue_color_lamp_3
     - light.hue_color_wall_1
+    - light.hue_ambiance_lamp_1
 
 livingroom:
   name: livingroom
@@ -29,6 +30,7 @@ kitchen:
   name: kitchen
   entities:
     - light.hue_color_lamp_2
+    - light.hue_ambiance_lamp_1
 
 hallway:
   name: hallway

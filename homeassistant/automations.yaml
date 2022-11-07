@@ -86,12 +86,14 @@
     platform: state
     to: 'off'
   action:
-  - entity_id: group.all_lights
+  - entity_id: group.livingroom
     service: light.turn_off
   - entity_id: switch.tv
     service: switch.turn_off
   - entity_id: group.office
     service: switch.turn_off
+  - entity_id: group.kitchen
+    service: light.turn_off
 
 - id: power_off_manual
   alias: Power off manual
