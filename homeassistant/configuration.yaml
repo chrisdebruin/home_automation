@@ -86,12 +86,6 @@ luxtronik:
   host: "192.168.1.20"
   port: 8889
 
-camera:
-  - platform: generic
-    name: Front door
-    still_image_url: !secret image_url
-    stream_source: !secret rtsp_url
-
 stream:
 
 energy:

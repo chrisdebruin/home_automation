@@ -108,8 +108,7 @@
   - entity_id: group.office
     service: switch.turn_off
 
-- alias: "Doorbell Notifications"
-  id: 'doorbell_notification'
+- id: 'doorbell_notification'
   trigger:
     - platform: mqtt
       topic: shellies/doorbell/input/0
