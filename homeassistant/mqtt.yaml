@@ -1,0 +1,30 @@
+switch:
+  - name: "Afzuiging"
+    state_topic: "stat/sonoff_afzuiging/POWER"
+    command_topic: "cmnd/sonoff_afzuiging/power"
+  - name: "Office Chris"
+    state_topic: "stat/sonoff_office_chris/POWER"
+    command_topic: "cmnd/sonoff_office_chris/power"
+  - name: "Office Mirjam"
+    state_topic: "stat/sonoff_xmas_tree/POWER"
+    command_topic: "cmnd/sonoff_xmas_tree/power"
+  - name: "TV"
+    state_topic: "stat/sonoff_tv/POWER"
+    command_topic: "cmnd/sonoff_tv/power"
+
+  - name: "livingroom"
+    state_topic: "stat/sonoff_woonkamer/POWER"
+    command_topic: "cmnd/sonoff_woonkamer/power"
+    retain: true
+  - name: "livingroom dinner"
+    state_topic: "stat/sonoff_livingroom_dinner/POWER"
+    command_topic: "cmnd/sonoff_livingroom_dinner/power"
+    retain: true
+  - name: "livingroom lichtsnoer"
+    state_topic: "stat/sonoff_livingroom_bulbs/POWER"
+    command_topic: "cmnd/sonoff_livingroom_bulbs/power"
+    retain: true
+  - name: "outside leds"
+    state_topic: "stat/sonoff_xmas_star/POWER"
+    command_topic: "cmnd/sonoff_xmas_star/power"
+    retain: true

@@ -17,7 +17,6 @@ homeassistant:
   allowlist_external_dirs:
     - /tmp
 
-
 http:
   use_x_forwarded_for: true
   trusted_proxies:
@@ -36,15 +35,6 @@ config:
 # http:
 #   base_url: example.duckdns.org:8123
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
-
 # Discover some devices automatically
 discovery:
 
@@ -60,10 +50,6 @@ discovery:
         #- 192.168.1.15
         #- 192.168.1.11
 
-# device_tracker:
-#  - platform: icloud
-#    username: !secret icloud_username
-#    password: !secret icloud_password
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -83,10 +69,6 @@ map:
 # Track the sun
 sun:
 
-    #- platform: dsmr
-    # port: /dev/ttyUSB0
-    # dsmr_version: 4
-
 mobile_app:
 
 zone:
@@ -94,10 +76,6 @@ zone:
     latitude: 52.04844495133844
     longitude: 5.628085176611849
     radius: 100
-
-    #pump:
-    #host: "192.168.1.20"
-    #port: 8889
 
 recorder:
   purge_keep_days: 5
@@ -116,11 +94,6 @@ camera:
 
 stream:
 
-mqtt:
-  broker: 192.168.1.5
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-
 energy:
 
 group: !include groups.yaml
@@ -128,4 +101,4 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
 switch: !include switches.yaml
-light: !include lights.yaml
+mqtt:  !include mqtt.yaml
