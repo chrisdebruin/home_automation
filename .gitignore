@@ -10,7 +10,7 @@ homeassistant/.HA_VERSION
 homeassistant/.uuid
 homeassistant/home-assistant_v2.db-shm
 homeassistant/home-assistant_v2.db-wal
-homeassistant/custom_components/hacs/
+homeassistant/custom_components/
 
 domoticz/config/
 
