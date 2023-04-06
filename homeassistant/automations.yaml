@@ -108,17 +108,18 @@
   - entity_id: group.office
     service: switch.turn_off
 
-- id: 'doorbell_notification'
+- id: doorbell_notification
+  alias: Doorbell notification
   trigger:
     - platform: mqtt
       topic: shellies/doorbell/input/0
       payload: '1'
-  condition:
-    - condition: template
-      value_template: >-
-        {{ (as_timestamp(now()) -
-        as_timestamp(state_attr('automation.doorbell_notification', 'last_triggered')
-        | default(0)) | int > 5)}}
+  # condition:
+  #   - condition: template
+  #     value_template: >-
+  #       {{ (as_timestamp(now()) -
+  #       as_timestamp(state_attr('automation.doorbell_notification', 'last_triggered')
+  #       | default(0)) | int > 5)}}
   variables:
     secret_dir: !secret secret_dir
     snapshot_url: !secret snapshot_url
