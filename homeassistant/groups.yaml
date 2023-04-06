@@ -1,10 +1,10 @@
 non_hue_lights:
   name: Non hue lights
   entities:
-    - light.livingroom_dinner
-    - light.livingroom
-    - light.livingroom_lichtsnoer
-    - light.outside_leds
+    - switch.livingroom_dinner
+    - switch.livingroom
+    - switch.livingroom_lichtsnoer
+    - switch.outside_leds
 
 hue_lights:
   name: hue lights
@@ -18,9 +18,9 @@ hue_lights:
 livingroom:
   name: livingroom
   entities:
-    - light.livingroom_dinner
-    - light.livingroom
-    - light.livingroom_lichtsnoer
+    - switch.livingroom_dinner
+    - switch.livingroom
+    - switch.livingroom_lichtsnoer
     - switch.tv
     - light.hue_color_lamp_1
     - light.hue_color_lamp_3
