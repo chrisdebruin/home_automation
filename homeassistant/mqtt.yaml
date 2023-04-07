@@ -11,6 +11,8 @@ switch:
   - name: "TV"
     state_topic: "stat/sonoff_tv/POWER"
     command_topic: "cmnd/sonoff_tv/power"
+
+light:
   - name: "livingroom"
     state_topic: "stat/sonoff_woonkamer/POWER"
     command_topic: "cmnd/sonoff_woonkamer/power"
