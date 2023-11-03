@@ -95,18 +95,18 @@
   - entity_id: group.kitchen
     service: light.turn_off
 
-- id: power_off_manual
-  alias: Power off manual
-  condition:
-    - condition: time
-      after: '20:00:00'
-  action:
-  - entity_id: group.livingroom
-    service: light.turn_off
-  - entity_id: group.kitchen
-    service: light.turn_off
-  - entity_id: group.office
-    service: switch.turn_off
+# - id: power_off_manual
+#   alias: Power off manual
+#   condition:
+#     - condition: time
+#       after: '20:00:00'
+#   action:
+#   - entity_id: group.livingroom
+#     service: light.turn_off
+#   - entity_id: group.kitchen
+#     service: light.turn_off
+#   - entity_id: group.office
+#     service: switch.turn_off
 
 - id: doorbell_notification
   alias: Doorbell notification
@@ -140,13 +140,24 @@
           attachment:
             content-type: jpeg
             url: "{{ url }}"
-- id: '1589640222465'
-  alias: Turn on TV
-  description: ''
+# - id: '1589640222465'
+#   alias: Turn on TV
+#   description: ''
+#   trigger:
+#   - at: 09:00
+#     platform: time
+#   condition: []
+#   action:
+#   - entity_id: switch.tv
+#     service: switch.turn_on
+
+- id: short_press_turn_on
   trigger:
-  - at: 09:00
-    platform: time
-  condition: []
+  - device_id: 34eb5923e9502913a187e9d15344a6ea
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
   action:
-  - entity_id: switch.tv
-    service: switch.turn_on
+    - entity_id: group.livingroom
+      service: light.turn_off
