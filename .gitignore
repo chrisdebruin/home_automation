@@ -11,7 +11,7 @@ homeassistant/.uuid
 homeassistant/home-assistant_v2.db-shm
 homeassistant/home-assistant_v2.db-wal
 homeassistant/custom_components/
-
+homeassistant/zigbee*
 domoticz/config/
 
 dehydrated/accounts/

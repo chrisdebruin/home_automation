@@ -15,6 +15,7 @@ services:
     network_mode: host
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyACM0:/dev/ttyACM0
 
   mosquitto:
     image: eclipse-mosquitto
