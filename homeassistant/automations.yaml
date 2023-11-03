@@ -160,4 +160,15 @@
     subtype: turn_on
   action:
     - entity_id: group.livingroom
+      service: light.turn_on
+
+- id: short_press_turn_off
+  trigger:
+  - device_id: 34eb5923e9502913a187e9d15344a6ea
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_off
+  action:
+    - entity_id: group.livingroom
       service: light.turn_off
