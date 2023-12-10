@@ -21,6 +21,7 @@ livingroom:
     - light.livingroom_dinner
     - light.livingroom
     - light.livingroom_lichtsnoer
+    - light.kerstboom
     - switch.tv
     - light.hue_color_lamp_1
     - light.hue_color_lamp_3

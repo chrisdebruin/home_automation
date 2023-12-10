@@ -29,3 +29,7 @@ light:
     state_topic: "stat/sonoff_xmas_star/POWER"
     command_topic: "cmnd/sonoff_xmas_star/power"
     retain: true
+  - name: "kerstboom"
+    state_topic: "stat/sonoff_kerstboom/POWER"
+    command_topic: "cmnd/sonoff_kerstboom/power"
+    retain: true
