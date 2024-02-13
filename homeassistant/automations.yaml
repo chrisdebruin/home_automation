@@ -143,9 +143,25 @@
   trigger:
     - platform: sun
       event: sunset
-      offset: "00:15:00"
   action:
     - service: light.turn_on
       entity_id: group.livingroom
     - service: light.turn_on
       entity_id: group.kitchen
+
+- id: lights_off
+  alias: Lights off
+  trigger:
+    - platform: time
+      at: '22:30:00'
+  action:
+    - service: light.turn_off
+      target:
+        entity_id:
+          - group.livingroom
+          - group.kitchen
+    - service: switch.turn_off
+      target:
+        entity_id:
+          - group.office
+          - switch.tv
